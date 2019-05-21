@@ -23,7 +23,22 @@ public class Bullet : MonoBehaviour {
     void OnTriggerEnter(Collider co) {
         Health health = co.GetComponentInChildren<Health>();
         if (health) {
-            health.decrease();
+            if (StoreMgr.Instance.towerSpecise == StoreMgr.TowerSpecise.primary)
+            {
+                health.decrease(1);
+            }
+            else if (StoreMgr.Instance.towerSpecise == StoreMgr.TowerSpecise.intermediate)
+            {
+                health.decrease(2);
+            }
+            else if (StoreMgr.Instance.towerSpecise == StoreMgr.TowerSpecise.advance)
+            {
+                health.decrease(3);
+            }
+            else if (StoreMgr.Instance.towerSpecise == StoreMgr.TowerSpecise.nightmare)
+            {
+                health.decrease(4);
+            }
             Destroy(gameObject);
         }
     }

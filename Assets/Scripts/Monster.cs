@@ -14,7 +14,7 @@ public class Monster : MonoBehaviour {
     void OnTriggerEnter(Collider co) {
         // If castle then deal Damage, destroy self
         if (co.name == "Castle") {
-            co.GetComponentInChildren<Health>().decrease();
+            co.GetComponentInChildren<Health>().decrease(4);
             Destroy(gameObject);
         }
     }
